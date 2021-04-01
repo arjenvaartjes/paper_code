@@ -43,14 +43,14 @@ def extract_gamma(ds):
     Input: xarray dataset
     Output: gamma (float)"""
     snapshot = json.loads(ds.snapshot)
-    return self.snapshot['station']['instruments']['Rotated_Magnet']['parameters']['gamma']['value']
+    return snapshot['station']['instruments']['Rotated_Magnet']['parameters']['gamma']['value']
 
 def extract_period(ds):
     """ Extracts the Bx value for a flux period from a snapshot dict. 
     Input: xarray dataset
     Output: field flux period Bx (float)"""
     snapshot = json.loads(ds.snapshot)
-    return self.snapshot['station']['parameters']['Field_flux_period']['value']
+    return snapshot['station']['parameters']['Field_flux_period']['value']
 
 def correct_flux(flux, Bz, gamma, period):
     """ Converts raw magnet flux value into rotated coordinate system flux
